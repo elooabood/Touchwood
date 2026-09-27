@@ -4,11 +4,15 @@ import MobileTopNavbar from "@/components/layout/MobileTopNavbar";
 import MobileBottomNavbar from "@/components/layout/MobileBottomNavbar";
 import WhatsAppFloatingButton from "@/components/WhatsAppFloatingButton";
 
-export default function ProductsLayout({
+export default async function ProductsLayout({
   children,
+  params,
 }: Readonly<{
   children: React.ReactNode;
+  params: Promise<{ locale: string }>;
 }>) {
+  const { locale } = await params;
+
   return (
     <>
       <Navbar />
@@ -16,9 +20,11 @@ export default function ProductsLayout({
       <MobileTopNavbar />
 
       <main>{children}</main>
-      <WhatsAppFloatingButton></WhatsAppFloatingButton>
 
-<MobileBottomNavbar></MobileBottomNavbar>
+      <WhatsAppFloatingButton locale={locale} />
+
+      <MobileBottomNavbar />
+
       <Footer />
     </>
   );

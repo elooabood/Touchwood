@@ -6,17 +6,9 @@ import { useParams } from "next/navigation";
 
 import ProductCard from "@/components/products/ProductCard";
 import { getProducts } from "@/services/api";
+import type { Product } from "@/types/product";
 
 import styles from "./CategoryProductSections.module.css";
-
-type Product = {
-  id?: string | number;
-  _id?: string;
-  slug?: string;
-  name?: string;
-  title?: string;
-  [key: string]: unknown;
-};
 
 type CategoryConfig = {
   slug: string;
@@ -220,7 +212,6 @@ export default function CategoryProductSections() {
               {products.map((product, index) => (
                 <ProductCard
                   key={
-                    product.id ||
                     product._id ||
                     product.slug ||
                     `${category.slug}-${index}`

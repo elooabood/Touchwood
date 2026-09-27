@@ -1,6 +1,7 @@
 "use client";
+
+
 import { addToCart } from "@/lib/localStore";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 import {
@@ -15,38 +16,7 @@ import {
   getDemoProductReviews,
   getProductReviews,
 } from "@/services/api";
-
-type Localized = {
-  ar: string;
-  en: string;
-};
-
-type Media = {
-  type?: "image" | "video";
-  url: string;
-  storageKey?: string;
-  thumbnail?: string;
-  alt?: Localized;
-  sortOrder?: number;
-  isPrimary?: boolean;
-};
-
-type Product = {
-  _id: string;
-  name: Localized;
-  description?: Localized;
-  slug: string;
-  category: string;
-  price: number;
-  oldPrice?: number | null;
-  serialNumber?: string;
-  stock: number;
-  media?: Media[];
-  rating?: number;
-  reviewsCount?: number;
-  featured?: boolean;
-  active?: boolean;
-};
+import type { Product, Localized } from "@/types/product";
 
 type ProductCardProps = {
   product: Product;

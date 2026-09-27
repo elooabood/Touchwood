@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useEffect, useState } from "react";
@@ -6,54 +5,86 @@ import { usePathname } from "next/navigation";
 import { FiSearch, FiX } from "react-icons/fi";
 import styles from "./MobileSearchNavbar.module.css";
 import { getProducts } from "@/services/api";
+import type { Locale, Localized, Product } from "@/types/product";
 
-const getLocalizedValue = (value, locale) => {
+type SearchProduct = Product & {
+  image?: string;
+};
+
+const getLocalizedValue = (
+  value: Localized | string | undefined,
+  locale: Locale,
+): string => {
   if (!value) return "";
 
   if (typeof value === "string") {
     return value;
   }
 
-  return (
-    value[locale] ||
-    value.en ||
-    value.ar ||
-    ""
-  );
+  return value[locale] || value.en || value.ar || "";
 };
 
-const getProductImage = (product) => {
+const getProductImage = (product: SearchProduct): string => {
   const firstMedia = product?.media?.[0];
 
   if (!firstMedia) {
-    return (
-      product?.image ||
-      "/images/placeholder-product.jpg"
-    );
-  }
-
-  if (typeof firstMedia === "string") {
-    return firstMedia;
+    return product?.image || "/images/placeholder-product.jpg";
   }
 
   return (
     firstMedia.url ||
-    firstMedia.secure_url ||
-    firstMedia.src ||
-    firstMedia.image ||
-    firstMedia.path ||
     "/images/placeholder-product.jpg"
   );
 };
+
+function normalizeSearchProducts(response: unknown): Product[] {
+  if (Array.isArray(response)) {
+    return response as Product[];
+  }
+
+  if (!response || typeof response !== "object") {
+    return [];
+  }
+
+  const data = response as {
+    products?: unknown;
+    data?: unknown;
+  };
+
+  if (Array.isArray(data.products)) {
+    return data.products as Product[];
+  }
+
+  if (
+    data.data &&
+    typeof data.data === "object" &&
+    !Array.isArray(data.data)
+  ) {
+    const nestedData = data.data as {
+      products?: unknown;
+    };
+
+    if (Array.isArray(nestedData.products)) {
+      return nestedData.products as Product[];
+    }
+  }
+
+  if (Array.isArray(data.data)) {
+    return data.data as Product[];
+  }
+
+  return [];
+}
 
 export default function MobileSearchNavbar() {
   const pathname = usePathname();
 
   const segments = pathname.split("/").filter(Boolean);
-  const locale = segments[0] === "en" ? "en" : "ar";
+  const locale: Locale =
+    segments[0] === "en" ? "en" : "ar";
 
   const [search, setSearch] = useState("");
-  const [searchResults, setSearchResults] = useState([]);
+  const [searchResults, setSearchResults] = useState<Product[]>([]);
   const [isSearching, setIsSearching] = useState(false);
   const [showSearchResults, setShowSearchResults] =
     useState(false);
@@ -78,16 +109,9 @@ export default function MobileSearchNavbar() {
           active: true,
         });
 
-        const products = Array.isArray(response)
-          ? response
-          : response?.products ||
-            response?.data?.products ||
-            response?.data ||
-            [];
+        const products = normalizeSearchProducts(response);
 
-        setSearchResults(
-          Array.isArray(products) ? products : []
-        );
+        setSearchResults(products);
       } catch (error) {
         console.error("Mobile search error:", error);
         setSearchResults([]);
@@ -183,24 +207,21 @@ export default function MobileSearchNavbar() {
               searchResults.map((product) => {
                 const productName = getLocalizedValue(
                   product.name,
-                  locale
+                  locale,
                 );
 
-                const productCategory =
-                  getLocalizedValue(
-                    product.category,
-                    locale
-                  );
+                const productCategory = product.category;
 
-                const productImage =
-                  getProductImage(product);
+                const productImage = getProductImage(
+                  product,
+                );
 
                 const productHref = `/${locale}/products/${product.slug}`;
 
                 const formattedPrice = Number(
-                  product.price || 0
+                  product.price || 0,
                 ).toLocaleString(
-                  locale === "ar" ? "ar-EG" : "en-US"
+                  locale === "ar" ? "ar-EG" : "en-US",
                 );
 
                 return (

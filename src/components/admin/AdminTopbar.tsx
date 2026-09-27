@@ -325,9 +325,7 @@ const getNotificationTone = (
   if (notification.type === "out_of_stock") {
     return "notificationToneDanger";
   }
-if (notification.type === "Delivered") {
-    return "notificationToneDelivered";
-  }
+
   if (notification.type === "new_product") {
     return "notificationToneSuccess";
   }

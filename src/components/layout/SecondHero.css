@@ -1,6 +1,6 @@
 .secondHero {
   width: 100%;
-  padding: 0px 0 24px;
+  padding: 0 0 24px;
   background: #fdfdff;
 }
 
@@ -39,41 +39,41 @@
   object-fit: cover;
 }
 
-.secondHeroSwiper :global(.swiper-pagination) {
+.secondHeroSwiper .swiper-pagination {
   bottom: 12px;
 }
 
-.secondHeroSwiper :global(.swiper-pagination-bullet) {
+.secondHeroSwiper .swiper-pagination-bullet {
   width: 8px;
   height: 8px;
   background-color: #fff;
   opacity: 0.5;
 }
 
-.secondHeroSwiper :global(.swiper-pagination-bullet-active) {
+.secondHeroSwiper .swiper-pagination-bullet-active {
   width: 24px;
   border-radius: 10px;
   background-color: #e3000f;
   opacity: 1;
 }
 
-.secondHeroSwiper :global(.swiper-button-next),
-.secondHeroSwiper :global(.swiper-button-prev) {
+.secondHeroSwiper .swiper-button-next,
+.secondHeroSwiper .swiper-button-prev {
   color: #ffffff;
   opacity: 0.7;
   transform: scale(0.6);
   transition: 0.3s;
 }
 
-.secondHeroSwiper :global(.swiper-button-next:hover),
-.secondHeroSwiper :global(.swiper-button-prev:hover) {
+.secondHeroSwiper .swiper-button-next:hover,
+.secondHeroSwiper .swiper-button-prev:hover {
   opacity: 1;
   transform: scale(0.7);
 }
 
 @media (max-width: 768px) {
   .secondHero {
-  padding: 0px 10px 24px;
+    padding: 0 10px 24px;
   }
 
   .secondHeroContainer {
@@ -97,21 +97,21 @@
     object-fit: contain;
   }
 
-  .secondHeroSwiper :global(.swiper-pagination) {
+  .secondHeroSwiper .swiper-pagination {
     bottom: 8px;
   }
 
-  .secondHeroSwiper :global(.swiper-pagination-bullet) {
+  .secondHeroSwiper .swiper-pagination-bullet {
     width: 6px;
     height: 6px;
   }
 
-  .secondHeroSwiper :global(.swiper-pagination-bullet-active) {
+  .secondHeroSwiper .swiper-pagination-bullet-active {
     width: 16px;
   }
 
-  .secondHeroSwiper :global(.swiper-button-next),
-  .secondHeroSwiper :global(.swiper-button-prev) {
+  .secondHeroSwiper .swiper-button-next,
+  .secondHeroSwiper .swiper-button-prev {
     display: none;
   }
 }

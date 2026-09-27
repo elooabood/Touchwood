@@ -75,7 +75,7 @@ export default function AdminSidebar({
 
     onClose();
 
-    router.replace(`/${locale}/`);
+    window.location.href = `/${locale}/`;
   };
 
   return (

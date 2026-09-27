@@ -104,7 +104,7 @@ type DisplayReview = Review | DemoReview;
 
 type Product = {
   _id: string;
-  slug?: string;
+  slug: string;
   name: Localized;
   description: Localized;
   price: number;
@@ -115,7 +115,7 @@ type Product = {
   colors?: ProductColor[];
   rating?: number;
   reviewsCount?: number;
-  stock?: number;
+  stock: number;
 };
 
 const localText = (
@@ -1315,15 +1315,14 @@ const name = isDemoReview
   }`}
 >
             {related.map((item) => (
-              <SwiperSlide
-                key={item._id}
-              >
-                <ProductCard
-                  product={item as never}
-                  locale={locale}
-                />
-              </SwiperSlide>
-            ))}
+  <SwiperSlide
+    key={item._id}
+  >
+    <ProductCard
+      product={item}
+    />
+  </SwiperSlide>
+))}
           </Swiper>
         </section>
       )}

@@ -1887,7 +1887,7 @@ export default function OrdersPage() {
                             </div>
 
                             <div className="orders-history-values">
-                             <div className="orders-history-value orders-history-new">
+                              <div className="orders-history-value orders-history-new">
                                 <span>
                                   {text(
                                     locale,
@@ -1913,7 +1913,7 @@ export default function OrdersPage() {
                                 />
                               </div>
 
-                               <div className="orders-history-value">
+                              <div className="orders-history-value">
                                 <span>
                                   {text(
                                     locale,
@@ -2389,12 +2389,14 @@ export default function OrdersPage() {
                   item,
                   index
                 ) => {
-                  const selectedProduct =
-                    products.find(
-                      (product) =>
-                        product._id ===
-                        item.product
-                    );
+            const selectedProduct =
+  products.find(
+    (product) =>
+      product._id === item.product
+  );
+
+const selectedColors =
+  selectedProduct?.colors ?? [];
 
                   return (
                     <div
@@ -2452,9 +2454,7 @@ export default function OrdersPage() {
                         )}
                       </select>
 
-                      {selectedProduct
-                        ?.colors
-                        ?.length >
+                      {selectedColors.length >
                         0 && (
                         <select
                           value={
@@ -2480,7 +2480,7 @@ export default function OrdersPage() {
                             )}
                           </option>
 
-                          {selectedProduct.colors.map(
+                          {selectedColors.map(
                             (
                               color
                             ) => (
