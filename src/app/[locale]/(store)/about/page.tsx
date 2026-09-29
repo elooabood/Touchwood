@@ -29,9 +29,6 @@ export default function AboutPage() {
 
   return (
     <main className={styles.page} dir={isArabic ? "rtl" : "ltr"}>
-      {/* =========================
-          Breadcrumb
-      ========================== */}
       <nav
         className={styles.breadcrumb}
         aria-label={isArabic ? "مسار التنقل" : "Breadcrumb"}
@@ -47,43 +44,46 @@ export default function AboutPage() {
         </span>
       </nav>
 
-      {/* =========================
-          Hero
-      ========================== */}
       <section className={styles.hero}>
-        <div className={styles.heroLeft}>
-          <div className={styles.logoCard}>
-            <Image
-              src="/images/logo.jpeg"
-              alt="Touchwood"
-              width={348}
-              height={348}
-              priority
-              className={styles.logoImage}
-            />
+        <div className={styles.heroVisual}>
+          <div className={styles.heroVisualMain}>
+            <div className={styles.heroPattern} />
+
+            <div className={styles.heroLogoWrap}>
+              <Image
+                src="/images/logo.jpeg"
+                alt="Touchwood"
+                width={380}
+                height={380}
+                priority
+                className={styles.heroLogo}
+              />
+            </div>
+
+            <div className={styles.heroBadge}>
+              <span>TOUCHWOOD</span>
+              <small>
+                {t(
+                  locale,
+                  "الأثاث الذي يصنع الفرق",
+                  "Furniture that makes a difference"
+                )}
+              </small>
+            </div>
           </div>
 
-          <div className={styles.logoCaption}>
-            <span>TOUCHWOOD</span>
-            <small>
-              {t(
-                locale,
-                "الأثاث الذي يصنع الفرق",
-                "Furniture that makes a difference"
-              )}
-            </small>
-          </div>
+         
         </div>
 
         <div className={styles.heroContent}>
-          <span className={styles.overline}>
+          <span className={styles.eyebrow}>
             {t(locale, "من نحن", "ABOUT TOUCHWOOD")}
           </span>
 
           <h1>
             {t(
               locale,
-              "مساحتك تستحق اثاثًا يشبهها.",
+              "مساحتك تستحق أثاثًا يشبهها.",
               "Your space deserves furniture that feels like you."
             )}
           </h1>
@@ -91,25 +91,24 @@ export default function AboutPage() {
           <p>
             {t(
               locale,
-              "في Touchwood نقدم أثاثًا يجمع بين التصميم العملي، التفاصيل الجميلة، والجودة التي تجعل القطعة جزءًا حقيقيًا من منزلك.",
+              "في Touchwood نقدم أثاثاً مكتبياً يجمع بين التصميم العملي، التفاصيل الجميلة، والجودة التي تجعل القطعة جزءًا حقيقيًا من منزلك.",
               "At Touchwood, we bring together practical design, beautiful details and lasting quality to create furniture that truly belongs in your home."
             )}
           </p>
 
-          <div className={styles.heroActions}>
-            <Link
-              href={`/${locale}/shop`}
-              className={styles.primaryButton}
-            >
+          <div className={styles.heroFooter}>
+            <Link href={`/${locale}/shop`} className={styles.primaryButton}>
               <span>
                 {t(locale, "اكتشف منتجاتنا", "Explore Products")}
               </span>
-
               <ArrowIcon aria-hidden="true" />
             </Link>
 
-            <div className={styles.heroNote}>
-              <FiCheck aria-hidden="true" />
+            <div className={styles.heroTrust}>
+              <span className={styles.heroTrustIcon}>
+                <FiCheck aria-hidden="true" />
+              </span>
+
               <span>
                 {t(
                   locale,
@@ -122,30 +121,31 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* =========================
-          Intro
-      ========================== */}
-      <section className={styles.intro}>
-        <div className={styles.introNumber}>01</div>
+      <section className={styles.story}>
+        <div className={styles.sectionIndex}>
+          
+        </div>
 
-        <div className={styles.introContent}>
-          <span className={styles.overline}>
-            {t(locale, "قصتنا", "OUR STORY")}
-          </span>
+        <div className={styles.storyContent}>
+          <div className={styles.sectionHeading}>
+            <span className={styles.eyebrow}>
+              {t(locale, "قصتنا", "OUR STORY")}
+            </span>
 
-          <h2>
-            {t(
-              locale,
-              "نؤمن أن الأثاث ليس مجرد قطعة.",
-              "We believe furniture is more than a piece."
-            )}
-          </h2>
+            <h2>
+              {t(
+                locale,
+                "نؤمن أن الأثاث ليس مجرد قطعة.",
+                "We believe furniture is more than a piece."
+              )}
+            </h2>
+          </div>
 
-          <div className={styles.introText}>
+          <div className={styles.storyGrid}>
             <p>
               {t(
                 locale,
-                "كل قطعة أثاث تدخل منزلك تصبح جزءًا من يومك. لهذا نهتم بأن تكون القطعة جميلة في شكلها، عملية في استخدامها، ومريحة في حضورها.",
+                "كل قطعة أثاث مكتبي تدخل منزلك تصبح جزءًا من يومك. لهذا نهتم بأن تكون القطعة جميلة في شكلها، عملية في استخدامها، ومريحة في حضورها.",
                 "Every piece of furniture becomes part of your everyday life. That is why we care about making every piece beautiful, practical and comfortable."
               )}
             </p>
@@ -160,23 +160,100 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+<section className={styles.customSection}>
+  <div className={styles.customVisual}>
+    <div className={styles.customGrid} />
 
-      {/* =========================
-          Green Statement
-      ========================== */}
+    <div className={styles.customCard}>
+      <span className={styles.customCardNumber}>01</span>
+
+      <div className={styles.customCardIcon}>
+        <FiHome aria-hidden="true" />
+      </div>
+
+      <strong>
+        {t(
+          locale,
+          "تصميم حسب طلبك",
+          "Designed for you"
+        )}
+      </strong>
+
+      <span>
+        {t(
+          locale,
+          "من الفكرة إلى التنفيذ",
+          "From idea to execution"
+        )}
+      </span>
+    </div>
+
+    <div className={styles.customAccent} />
+  </div>
+
+  <div className={styles.customContent}>
+    <span className={styles.eyebrow}>
+      {t(locale, "نصنع حسب طلبك", "MADE TO ORDER")}
+    </span>
+
+    <h2>
+      {t(
+        locale,
+        "Touchwood مصنع يصنع لك التصميم الذي يناسبك.",
+        "Touchwood is a manufacturer that creates furniture designed around you."
+      )}
+    </h2>
+
+    <p>
+      {t(
+        locale,
+        "لا نكتفي بتقديم تصميمات جاهزة. في Touchwood نمتلك القدرة على تصنيع قطع أثاث حسب طلب العميل، لنمنحك حرية اختيار التصميم والمقاسات والتفاصيل بما يتناسب مع مساحتك واحتياجاتك.",
+        "We do more than offer ready-made designs. At Touchwood, we manufacture furniture according to your requirements, giving you the freedom to choose the design, dimensions and details that fit your space and needs."
+      )}
+    </p>
+
+    <div className={styles.customFeatures}>
+      <div>
+        <span>01</span>
+        <strong>
+          {t(locale, "تصميم مخصص", "Custom Design")}
+        </strong>
+      </div>
+
+      <div>
+        <span>02</span>
+        <strong>
+          {t(locale, "مقاسات حسب المساحة", "Made to Measure")}
+        </strong>
+      </div>
+
+      <div>
+        <span>03</span>
+        <strong>
+          {t(locale, "تنفيذ حسب الطلب", "Made to Order")}
+        </strong>
+      </div>
+    </div>
+  </div>
+</section>
       <section className={styles.statement}>
+        <div className={styles.statementDecor}>
+          <span />
+          <span />
+        </div>
+
         <div className={styles.statementLogo}>
           <Image
             src="/images/logo.jpeg"
             alt=""
-            width={170}
-            height={170}
+            width={180}
+            height={180}
             className={styles.statementLogoImage}
           />
         </div>
 
         <div className={styles.statementContent}>
-          <span className={styles.statementOverline}>
+          <span className={styles.statementEyebrow}>
             {t(locale, "لماذا Touchwood؟", "WHY TOUCHWOOD?")}
           </span>
 
@@ -198,98 +275,105 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* =========================
-          Values
-      ========================== */}
       <section className={styles.values}>
-        <div className={styles.valuesHeading}>
-          <span className={styles.overline}>
-            {t(locale, "قيمنا", "OUR VALUES")}
-          </span>
+        <div className={styles.valuesTop}>
+          <div className={styles.sectionIndex}>
+         
+          </div>
 
-          <h2>
-            {t(
-              locale,
-              "ما نهتم به في كل قطعة.",
-              "What matters in every piece."
-            )}
-          </h2>
+          <div className={styles.valuesHeading}>
+            <span className={styles.eyebrow}>
+              {t(locale, "قيمنا", "OUR VALUES")}
+            </span>
+
+            <h2>
+              {t(
+                locale,
+                "ما نهتم به في كل قطعة.",
+                "What matters in every piece."
+              )}
+            </h2>
+          </div>
         </div>
 
         <div className={styles.valuesGrid}>
           <article className={styles.valueCard}>
-            <div className={styles.valueIcon}>
-              <FiHome aria-hidden="true" />
+            <div className={styles.valueTop}>
+              <span className={styles.valueIcon}>
+                <FiHome aria-hidden="true" />
+              </span>
+
             </div>
 
-            <span className={styles.valueNumber}>01</span>
+            <div className={styles.valueBody}>
+              <h3>
+                {t(locale, "تصميم عملي", "Practical Design")}
+              </h3>
 
-            <h3>
-              {t(locale, "تصميم عملي", "Practical Design")}
-            </h3>
-
-            <p>
-              {t(
-                locale,
-                "تصميمات جميلة ومناسبة للاستخدام اليومي.",
-                "Beautiful designs made for everyday living."
-              )}
-            </p>
+              <p>
+                {t(
+                  locale,
+                  "تصميمات جميلة ومناسبة للاستخدام اليومي.",
+                  "Beautiful designs made for everyday living."
+                )}
+              </p>
+            </div>
           </article>
 
           <article className={styles.valueCard}>
-            <div className={styles.valueIcon}>
-              <FiShield aria-hidden="true" />
+            <div className={styles.valueTop}>
+              <span className={styles.valueIcon}>
+                <FiShield aria-hidden="true" />
+              </span>
+
             </div>
 
-            <span className={styles.valueNumber}>02</span>
+            <div className={styles.valueBody}>
+              <h3>
+                {t(locale, "جودة نهتم بها", "Quality First")}
+              </h3>
 
-            <h3>
-              {t(locale, "جودة نهتم بها", "Quality First")}
-            </h3>
-
-            <p>
-              {t(
-                locale,
-                "نركز على التفاصيل التي تجعل القطعة تستحق مكانها في منزلك.",
-                "We focus on details that make every piece worth its place in your home."
-              )}
-            </p>
+              <p>
+                {t(
+                  locale,
+                  "نركز على التفاصيل التي تجعل القطعة تستحق مكانها في منزلك.",
+                  "We focus on details that make every piece worth its place in your home."
+                )}
+              </p>
+            </div>
           </article>
 
           <article className={styles.valueCard}>
-            <div className={styles.valueIcon}>
-              <FiHeart aria-hidden="true" />
+            <div className={styles.valueTop}>
+              <span className={styles.valueIcon}>
+                <FiHeart aria-hidden="true" />
+              </span>
+
             </div>
 
-            <span className={styles.valueNumber}>03</span>
+            <div className={styles.valueBody}>
+              <h3>
+                {t(locale, "اختيار بعناية", "Carefully Selected")}
+              </h3>
 
-            <h3>
-              {t(locale, "اختيار بعناية", "Carefully Selected")}
-            </h3>
-
-            <p>
-              {t(
-                locale,
-                "نختار منتجاتنا بعناية لتناسب مختلف الأذواق والمساحات.",
-                "Our products are carefully selected for different styles and spaces."
-              )}
-            </p>
+              <p>
+                {t(
+                  locale,
+                  "نختار منتجاتنا بعناية لتناسب مختلف الأذواق والمساحات.",
+                  "Our products are carefully selected for different styles and spaces."
+                )}
+              </p>
+            </div>
           </article>
         </div>
       </section>
 
-      {/* =========================
-          Mission
-      ========================== */}
-      <section className={styles.mission}>
-        <div className={styles.missionSide}>
-          <span>02</span>
-          <div />
+      <section className={styles.vision}>
+        <div className={styles.visionNumber}>
         </div>
 
-        <div className={styles.missionContent}>
-          <span className={styles.overline}>
+        <div className={styles.visionContent}>
+          <span className={styles.eyebrow}>
             {t(locale, "رؤيتنا", "OUR VISION")}
           </span>
 
@@ -309,19 +393,18 @@ export default function AboutPage() {
             )}
           </p>
         </div>
+
+        <div className={styles.visionLine} />
       </section>
 
-      {/* =========================
-          CTA
-      ========================== */}
       <section className={styles.cta}>
-        <div className={styles.ctaLogo}>
+        <div className={styles.ctaBrand}>
           <Image
             src="/images/logo.jpeg"
             alt=""
-            width={90}
-            height={90}
-            className={styles.ctaLogoImage}
+            width={82}
+            height={82}
+            className={styles.ctaLogo}
           />
         </div>
 
@@ -339,10 +422,7 @@ export default function AboutPage() {
           </h2>
         </div>
 
-        <Link
-          href={`/${locale}/shop`}
-          className={styles.ctaButton}
-        >
+        <Link href={`/${locale}/shop`} className={styles.ctaButton}>
           <span>
             {t(locale, "تصفح المنتجات", "Browse Products")}
           </span>

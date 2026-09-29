@@ -244,7 +244,7 @@ export default function ShippingPage() {
                  C247 217 250 214 254 214
                  H272
                  C286 214 296 222 299 235
-                 L303 251
+                 L3 251
                  H289
                  L286 238
                  C284 231 279 228 272 228
@@ -390,6 +390,133 @@ export default function ShippingPage() {
 
       {/* Main Information */}
 
+      
+<section className={styles.deliveryOptions}>
+  <div className={styles.deliveryOptionsHeader}>
+    <span className={styles.sectionLabel}>
+      {t(locale, "مواعيد التوصيل", "DELIVERY TIMES")}
+    </span>
+
+    <h2>
+      {t(
+        locale,
+        "نوصلك في الوقت الذي يناسب طلبك.",
+        "Delivery times that fit your order."
+      )}
+    </h2>
+
+    <div className={styles.smallLine} />
+  </div>
+
+  <div className={styles.deliveryOptionsGrid}>
+    <article className={styles.deliveryOption}>
+      <div className={styles.deliveryOptionTop}>
+        <div className={styles.deliveryOptionIcon}>
+          <FiMapPin />
+        </div>
+
+      </div>
+
+      <div className={styles.deliveryOptionContent}>
+        <h3>
+          {t(
+            locale,
+            "القاهرة والجيزة",
+            "Cairo & Giza"
+          )}
+        </h3>
+
+        <strong>
+          {t(
+            locale,
+            "نفس اليوم أو اليوم التالي",
+            "Same day or next day"
+          )}
+        </strong>
+
+        <p>
+          {t(
+            locale,
+            "في حال توافر المنتج، يمكن توصيل طلبات القاهرة والجيزة في نفس اليوم أو اليوم التالي.",
+            "If the product is available, orders in Cairo and Giza can be delivered on the same day or the following day."
+          )}
+        </p>
+      </div>
+    </article>
+
+    <article className={styles.deliveryOption}>
+      <div className={styles.deliveryOptionTop}>
+        <div className={styles.deliveryOptionIcon}>
+          <FiPackage />
+        </div>
+
+        <span></span>
+      </div>
+
+      <div className={styles.deliveryOptionContent}>
+        <h3>
+          {t(
+            locale,
+            "الطلبات الكبيرة",
+            "Large Orders"
+          )}
+        </h3>
+
+        <strong>
+          {t(
+            locale,
+            "من 10 إلى 15 يومًا",
+            "10 to 15 days"
+          )}
+        </strong>
+
+        <p>
+          {t(
+            locale,
+            "الطلبات الكبيرة تحتاج إلى وقت للتجهيز والتنفيذ، وتكون مدة التسليم من 10 إلى 15 يومًا حسب الاتفاق مع العميل.",
+            "Large orders require additional preparation and production time. Delivery takes 10 to 15 days according to the agreement with the customer."
+          )}
+        </p>
+      </div>
+    </article>
+
+    <article className={styles.deliveryOption}>
+      <div className={styles.deliveryOptionTop}>
+        <div className={styles.deliveryOptionIcon}>
+          <FiTruck />
+        </div>
+
+        <span></span>
+      </div>
+
+      <div className={styles.deliveryOptionContent}>
+        <h3>
+          {t(
+            locale,
+            "باقي المحافظات",
+            "Other Governorates"
+          )}
+        </h3>
+
+        <strong>
+          {t(
+            locale,
+            "3 إلى 5 أيام عمل",
+            "3 to 5 Business Days"
+          )}
+        </strong>
+
+        <p>
+          {t(
+            locale,
+            "نوفر الشحن إلى جميع أنحاء الجمهورية، وتختلف مدة الوصول حسب المحافظة وطبيعة الطلب.",
+            "We ship across Egypt, with delivery time depending on the governorate and the nature of the order."
+          )}
+        </p>
+      </div>
+    </article>
+  </div>
+</section>
       <section className={styles.shippingInfo}>
         <div className={styles.infoIntro}>
           <span className={styles.sectionLabel}>
@@ -422,7 +549,6 @@ export default function ShippingPage() {
             </div>
 
             <div>
-              <span>01</span>
 
               <h3>
                 {t(
@@ -448,7 +574,7 @@ export default function ShippingPage() {
             </div>
 
             <div>
-              <span>02</span>
+              <span></span>
 
               <h3>
                 {t(
@@ -474,7 +600,7 @@ export default function ShippingPage() {
             </div>
 
             <div>
-              <span>03</span>
+              <span></span>
 
               <h3>
                 {t(
@@ -495,8 +621,6 @@ export default function ShippingPage() {
           </article>
         </div>
       </section>
-
-      {/* Cost Section */}
 
       <section className={styles.costSection}>
         <div className={styles.costBox}>

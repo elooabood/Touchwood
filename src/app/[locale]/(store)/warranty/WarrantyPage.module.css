@@ -345,7 +345,7 @@
   color: #183d2b;
 
   font-size: clamp(35px, 4vw, 53px);
-  line-height: 1.1;
+  line-height: 1.35;
 
   letter-spacing: -0.04em;
 }
@@ -609,7 +609,7 @@
   color: #ffffff;
 
   font-size: clamp(31px, 4vw, 48px);
-  line-height: 1.1;
+  line-height: 1.50;
 
   letter-spacing: -0.04em;
 }

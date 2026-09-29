@@ -29,8 +29,6 @@ export default function WarrantyPage() {
 
   return (
     <main className={styles.page} dir={isArabic ? "rtl" : "ltr"}>
-      {/* Breadcrumb */}
-
       <nav
         className={styles.breadcrumb}
         aria-label={isArabic ? "مسار التنقل" : "Breadcrumb"}
@@ -45,8 +43,6 @@ export default function WarrantyPage() {
           {t(locale, "الضمان", "Warranty")}
         </span>
       </nav>
-
-      {/* Hero */}
 
       <section className={styles.hero}>
         <div className={styles.heroText}>
@@ -67,8 +63,8 @@ export default function WarrantyPage() {
           <p>
             {t(
               locale,
-              "تقدم تاتش وود ضماناً سارياً من تاريخ الفاتورة الشرائية لمدة 12 شهراً على جميع كراسي والأنتريهات المكتبية، وضماناً ممتداً لمدة 36 شهراً على كافة المكاتب من تصنيعنا.",
-              "Touchwood provides a warranty starting from the purchase invoice date: 12 months on all office chairs and sofas, and an extended 36-month warranty on all desks manufactured by us."
+              "تقدم تاتش وود ضماناً لمدة سنة واحدة تبدأ من تاريخ استلام المنتج، مع توفير خدمات الصيانة مدى الحياة وقطع الغيار لضمان استمرار منتجك بأفضل حالة ممكنة.",
+              "Touchwood provides a one-year warranty starting from the date of product receipt, with lifetime maintenance services and spare parts availability to help keep your product in the best possible condition."
             )}
           </p>
         </div>
@@ -103,29 +99,27 @@ export default function WarrantyPage() {
         </div>
       </section>
 
-      {/* Warranty Stats */}
-
       <section className={styles.stats}>
         <article className={styles.stat}>
           <div className={styles.statIcon}>
             <FiShield />
           </div>
 
-          <strong>36</strong>
+          <strong>1</strong>
 
           <h3>
             {t(
               locale,
-              "شهر ضمان على المكاتب",
-              "Months Warranty on Desks"
+              "سنة ضمان",
+              "Year Warranty"
             )}
           </h3>
 
           <p>
             {t(
               locale,
-              "ضمان ممتد لمدة 36 شهراً على كافة المكاتب من تصنيعنا.",
-              "Extended 36-month warranty on all desks manufactured by us."
+              "ضمان لمدة سنة واحدة تبدأ من تاريخ استلام المنتج.",
+              "A one-year warranty starting from the date of product receipt."
             )}
           </p>
         </article>
@@ -135,21 +129,23 @@ export default function WarrantyPage() {
             <FiHeart />
           </div>
 
-          <strong>12</strong>
+          <strong className={styles.qualityText}>
+            {t(locale, "مدة", "LIFETIME")}
+          </strong>
 
           <h3>
             {t(
               locale,
-              "شهر ضمان على الكراسي والأنتريهات المكتبية",
-              "Months Warranty on Chairs & Sofas"
+              "الصيانة",
+              "Maintenance"
             )}
           </h3>
 
           <p>
             {t(
               locale,
-              "ضمان لمدة 12 شهراً من تاريخ الفاتورة الشرائية.",
-              "12-month warranty starting from the purchase invoice date."
+              "خدمات الصيانة متاحة لعملائنا مدى الحياة.",
+              "Maintenance services are available for our customers for a lifetime."
             )}
           </p>
         </article>
@@ -166,16 +162,16 @@ export default function WarrantyPage() {
           <h3>
             {t(
               locale,
-              "الفاتورة الشرائية",
-              "Purchase Invoice"
+              "استلام المنتج",
+              "Product Receipt"
             )}
           </h3>
 
           <p>
             {t(
               locale,
-              "يبدأ سريان الضمان من تاريخ الفاتورة الشرائية.",
-              "The warranty starts from the purchase invoice date."
+              "يبدأ سريان الضمان من تاريخ استلام المنتج.",
+              "The warranty starts from the date of product receipt."
             )}
           </p>
         </article>
@@ -186,24 +182,26 @@ export default function WarrantyPage() {
           </div>
 
           <strong className={styles.qualityText}>
-            {t(locale, "جودة", "QUALITY")}
+            {t(locale, "متاحة", "AVAILABLE")}
           </strong>
 
           <h3>
-            {t(locale, "مضمونة", "GUARANTEED")}
+            {t(
+              locale,
+              "قطع الغيار",
+              "Spare Parts"
+            )}
           </h3>
 
           <p>
             {t(
               locale,
-              "منتجاتنا مصممة لتدوم وتلبي احتياجاتك العملية.",
-              "Our products are designed to last and meet your practical needs."
+              "نوفر قطع الغيار للحفاظ على منتجاتك واستمرار استخدامها.",
+              "Spare parts are available to help maintain your products and extend their use."
             )}
           </p>
         </article>
       </section>
-
-      {/* Details */}
 
       <section className={styles.details}>
         <div className={styles.detailsText}>
@@ -224,8 +222,8 @@ export default function WarrantyPage() {
           <p className={styles.detailsParagraph}>
             {t(
               locale,
-              "نؤمن في تاتش وود بجودة منتجاتنا، لذلك نقدم لك ضماناً موثوقاً يغطي جميع الكراسي والأنتريهات المكتبية لمدة 12 شهراً، وضماناً ممتداً لمدة 36 شهراً على كافة المكاتب من تصنيعنا.",
-              "At Touchwood, we believe in the quality of our products. That is why we provide a reliable warranty covering all office chairs and sofas for 12 months, with an extended 36-month warranty on all desks manufactured by us."
+              "نؤمن في تاتش وود بجودة منتجاتنا، لذلك نقدم لك ضماناً لمدة سنة واحدة تبدأ من تاريخ استلام المنتج، مع توفير خدمات الصيانة مدى الحياة وقطع الغيار لمساعدتك في الحفاظ على منتجك والاستفادة منه لأطول فترة ممكنة.",
+              "At Touchwood, we believe in the quality of our products. That is why we provide a one-year warranty starting from the date of product receipt, along with lifetime maintenance services and spare parts availability to help you maintain your product and enjoy it for as long as possible."
             )}
           </p>
 
@@ -238,8 +236,8 @@ export default function WarrantyPage() {
               <p>
                 {t(
                   locale,
-                  "ضمان على الكراسي والأنتريهات المكتبية لمدة 12 شهراً.",
-                  "12-month warranty on office chairs and sofas."
+                  "ضمان لمدة سنة واحدة من تاريخ استلام المنتج.",
+                  "One-year warranty from the date of product receipt."
                 )}
               </p>
             </div>
@@ -252,8 +250,22 @@ export default function WarrantyPage() {
               <p>
                 {t(
                   locale,
-                  "ضمان ممتد على كافة المكاتب من تصنيعنا لمدة 36 شهراً.",
-                  "Extended 36-month warranty on all desks manufactured by us."
+                  "خدمات الصيانة متاحة مدى الحياة.",
+                  "Lifetime maintenance services are available."
+                )}
+              </p>
+            </div>
+
+            <div>
+              <span>
+                <FiCheck />
+              </span>
+
+              <p>
+                {t(
+                  locale,
+                  "قطع الغيار متاحة للحفاظ على منتجاتك.",
+                  "Spare parts are available to maintain your products."
                 )}
               </p>
             </div>
@@ -271,42 +283,8 @@ export default function WarrantyPage() {
           </Link>
         </div>
 
-        <div className={styles.detailsImage}>
-          <Image
-            src="/images/warranty-detail.png"
-            alt={t(
-              locale,
-              "مكتب من تاتش وود",
-              "Touchwood desk"
-            )}
-            fill
-            sizes="(max-width: 800px) 100vw, 55vw"
-          />
-
-          <div className={styles.imageOrangeBar} />
-
-          <div className={styles.imageMessage}>
-            <strong>
-              {t(locale, "جودة تدوم", "QUALITY")}
-            </strong>
-
-            <strong>
-              {t(locale, "معك", "THAT LASTS")}
-            </strong>
-
-            <div />
-
-            <Image
-              src="/images/logo.jpeg"
-              alt="Touchwood"
-              width={58}
-              height={58}
-            />
-          </div>
-        </div>
+        
       </section>
-
-      {/* Final CTA */}
 
       <section className={styles.cta}>
         <div className={styles.ctaDecoration} />

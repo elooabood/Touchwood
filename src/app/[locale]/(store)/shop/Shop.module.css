@@ -390,7 +390,7 @@
 
 .pagination button:hover:not(:disabled) {
   border-color: #238a37;
-  color: #238a37;
+  color: white;
 }
 
 .pagination button:disabled {
@@ -456,7 +456,7 @@
   }
 
   .mobileFilterBar button {
-    display: flex;
+    display: none;
     align-items: center;
     gap: 6px;
     padding: 9px 12px;
